@@ -13,7 +13,7 @@ function Jumbotron(props) {
     const { children, direction = 'row', ...restProps } = props;
 
     return (
-        <Item direction={direction}>
+        <Item direction={direction} {...restProps}>
             <Inner direction={direction}>
                 {children}
             </Inner>
