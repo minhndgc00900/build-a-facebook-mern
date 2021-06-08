@@ -22,7 +22,13 @@ export const Inner = styled.div`
     }
 `;
 
-export const Container = styled.div``;
+export const Container = styled.div`
+    @media (max-width: 100px){
+        ${Item}:last-of-type h2{
+            
+        }
+    }
+`;
 
 export const Pane = styled.div`
     width: 50%;
