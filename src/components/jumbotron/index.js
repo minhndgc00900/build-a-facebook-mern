@@ -48,7 +48,8 @@ Jumbotron.SubTitle = function JumbotronSubTitle(props) {
 Jumbotron.Image = function JumbotronImage(props) {
     const { children, ...restProps } = props;
 
-    return <Image {...restProps}>{children}</Image>
+    // return <Image {...restProps}>{children}</Image>
+    return <Image {...props}></Image>
 }
 
 export default Jumbotron;
