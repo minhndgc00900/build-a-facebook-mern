@@ -1,11 +1,18 @@
 import React from 'react'
+import { Header } from '../components';
+import * as ROUTES from '../constants/routes'
+import logo from '../logo.svg'
 
-function Header() {
+function HeaderContainer(props) {
     return (
-        <div>
-            aaaaaaaaaaaaaaaaaaaa
-        </div>
+        <Header {...props}>
+            <Header.Frame>
+                <Header.Logo to={ROUTES.HOME} alt='Netflix' src={logo} />
+                <Header.Button to={ROUTES.SIGN_IN}>Sign in</Header.Button>
+            </Header.Frame>
+            {props.children}
+        </Header>
     )
 }
 
-export { Header }
+export { HeaderContainer }
