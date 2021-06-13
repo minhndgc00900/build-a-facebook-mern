@@ -56,6 +56,9 @@ Accordion.Header = function AccordionHeader(props) {
             {...restProps}
         >
                 {children}
+                {toggleShow ? (
+                    <img src="/images/icons/close-slim.png" alt="Clóe" />
+                ) : <img src='/images/icons/add.png' alt='Open' /> }
         </Header>
     )
 }
