@@ -1,5 +1,18 @@
-import React from 'react';
-import { Container, Inner } from '../jumbotron/styles/jumbotron';
+import React, { 
+    useContext,
+    useState,
+    createContext 
+} from 'react';
+import { 
+    Container, 
+    Frame,
+    Title,
+    Item,
+    Inner,
+    Header,
+    Body 
+} from '../accordion/style/accordion';
+
 
 function Accordion(props) {
     const { children, ...restProps } = props;
@@ -21,22 +34,40 @@ Accordion.Frame = function AccordionFrame(props) {
     return <Frame {...restProps}>{children}</Frame>
 }
 
+const ToggleContext = createContext();
+
 Accordion.Item = function AccordionItem(props) {
     const { children, ...restProps } = props;
 
-    const [toogleShow, setToogleShow] = useState(false);
-    return <Item {...restProps}>{children}</Item>
+    const [toggleShow, setToggleShow] = useState(false);
+    return (
+        <ToggleContext.Provider value={{toggleShow, setToggleShow}}>
+            <Item {...restProps}>{children}</Item>
+        </ToggleContext.Provider>
+    )
 }
 
-// Accordion.Header = function AccordionHeader(props) {
-//     const { children, ...restProps } = props;
+Accordion.Header = function AccordionHeader(props) {
+    const { children, ...restProps } = props;
+    const { toggleShow, setToggleShow } = useContext(ToggleContext);
 
-//     const [toogleShow, setToogleShow] = useState(false);
-//     return (
-//         <Header onClick={() => setT} {...restProps}>
-//             {children}
-//         </Header>
-//     )
-// }
+    return (
+        <Header onClick={() => setToggleShow(prev => !prev)} 
+            {...restProps}
+        >
+                {children}
+                {toggleShow ? (
+                    <img src="/images/icons/close-slim.png" alt="Clóe" />
+                ) : <img src='/images/icons/add.png' alt='Open' /> }
+        </Header>
+    )
+}
 
-export default Accordion
+Accordion.Body = function AccordionBody(props){
+    const { children } = props;
+    const { toggleShow } = useContext(ToggleContext);
+
+    return toggleShow ? <Body {...props}>{children}</Body> : null;
+}
+
+export default Accordion;
