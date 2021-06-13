@@ -9,12 +9,13 @@ export const Item = styled.div`
     color: white;
     margin: auto;
     margin-bottom: 10px;
-    max-width: 670px;
-    display: flex;
-    padding: 0 45px;
-    flex-direction: column;
-    &:first-of-type:{
-        margin-top: 3em;
+    max-width: 728px;
+    width: 100%;
+    &:first-of-type {
+      margin-top: 3em;
+    }
+    &:last-of-type {
+      margin-bottom: 0;
     }
 `;
 
@@ -64,7 +65,15 @@ export const Body = styled.div`
 export const Frame = styled.div`
     margin-bottom: 40px
 `;
-export const Inner = styled.div``;
+
+export const Inner = styled.div`
+  display: flex;
+  padding: 70px 45px;
+  flex-direction: column;
+  max-width: 815px;
+  margin: auto;
+`;
+
 export const Title = styled.h1`
     font-size:50px;
     line-height: 1.1;

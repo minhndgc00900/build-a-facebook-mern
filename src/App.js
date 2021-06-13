@@ -7,8 +7,8 @@ function App() {
   return (
     <>
       <JumbotronContainer />
-      <FooterContainer />
       <FagContainer />
+      <FooterContainer />
     </>
     
   );
