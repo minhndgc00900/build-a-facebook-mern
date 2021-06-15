@@ -1,54 +1,56 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
+import React from 'react'
 import {
-    Row,
-    Column,
-    Link,
-    Title,
-    Text,
-    Break,
-    Container
-} from './styles/footer';
+  Row,
+  Column,
+  Link,
+  Title,
+  Text,
+  Break,
+  Container
+} from './styles/footer'
 
-function Footer(props) {
-    const { children, ...restProps } = props;
-    return (
+function Footer (props) {
+  const { children, ...restProps } = props
+  return (
         <Container {...restProps}>
             {children}
         </Container>
-)}
-
-Footer.Row = function FooterRow(props) {
-    const { children, ...restProps } = props;
-
-    return <Row {...restProps}>{children}</Row>
+  )
 }
 
-Footer.Column = function FooterColumn(props) {
-    const { children, ...restProps } = props;
+Footer.Row = function FooterRow (props) {
+  const { children, ...restProps } = props
 
-    return <Column {...restProps}>{children}</Column>
+  return <Row {...restProps}>{children}</Row>
 }
 
-Footer.Link = function FooterLink(props) {
-    const { children, ...restProps } = props;
+Footer.Column = function FooterColumn (props) {
+  const { children, ...restProps } = props
 
-    return <Link {...restProps}>{children}</Link>
+  return <Column {...restProps}>{children}</Column>
 }
 
-Footer.Text = function FooterText(props) {
-    const { children, ...restProps } = props;
+Footer.Link = function FooterLink (props) {
+  const { children, ...restProps } = props
 
-    return <Text {...restProps}>{children}</Text>
+  return <Link {...restProps}>{children}</Link>
 }
 
-Footer.Title = function FooterTitle({ children, ...restProps }) {
-    return <Title {...restProps}>{children}</Title>;
-  };
+Footer.Text = function FooterText (props) {
+  const { children, ...restProps } = props
 
-Footer.Break = function FooterBreak(props) {
-    const { children, ...restProps } = props;
-
-    return <Break {...restProps}>{children}</Break>
+  return <Text {...restProps}>{children}</Text>
 }
 
-export default Footer;
+Footer.Title = function FooterTitle ({ children, ...restProps }) {
+  return <Title {...restProps}>{children}</Title>
+}
+
+Footer.Break = function FooterBreak (props) {
+  const { children, ...restProps } = props
+
+  return <Break {...restProps}>{children}</Break>
+}
+
+export default Footer

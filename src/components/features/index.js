@@ -1,14 +1,15 @@
-import React from 'react';
-import { Container, Title, SubTitle } from './styles/features';
+/* eslint-disable react/prop-types */
+import React from 'react'
+import { Container, Title, SubTitle } from './styles/features'
 
-export default function Feature({ children, ...restProps }) {
-  return <Container {...restProps}>{children}</Container>;
+export default function Feature ({ children, ...restProps }) {
+  return <Container {...restProps}>{children}</Container>
 }
 
-Feature.Title = function FeatureTitle({ children, ...restProps }) {
-  return <Title {...restProps}>{children}</Title>;
-};
+Feature.Title = function FeatureTitle ({ children, ...restProps }) {
+  return <Title {...restProps}>{children}</Title>
+}
 
-Feature.SubTitle = function FeatureSubTitle({ children, ...restProps }) {
-  return <SubTitle {...restProps}>{children}</SubTitle>;
-};
+Feature.SubTitle = function FeatureSubTitle ({ children, ...restProps }) {
+  return <SubTitle {...restProps}>{children}</SubTitle>
+}

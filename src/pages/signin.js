@@ -1,27 +1,41 @@
-import React, { useState } from 'react'
-import { Form } from '../components';
-import { FooterContainer } from '../containers/footer';
-import { HeaderContainer } from '../containers/header';
+/* eslint-disable react/no-unescaped-entities */
+import React, { useContext, useState } from 'react'
+import { Form } from '../components'
+import { FooterContainer } from '../containers/footer'
+import { HeaderContainer } from '../containers/header'
+import { FireBaseContext } from '../context/firebase'
+import * as ROUTES from '../constants/routes'
 
+function SignIn () {
+  const [emailAddress, setEmailAddress] = useState()
+  const [password, setPassword] = useState()
+  const [error, setError] = useState('')
+  const { firebase } = useContext(FireBaseContext)
+  const isInvalid = password === '' || emailAddress === ''
+  const handleSignin = event => {
+    event.preventDefault()
 
-function SignIn() {
-    const [emailAddress, setEmailAddress] = useState();
-    const [password, setpassword] = useState();
-    const [error, setError] = useState('');
+    return firebase
+      .auth()
+      .signInWithEmailAndPassword(emailAddress, password)
+      .then(() => {
+        history.push(ROUTES.BROWSE)
+      })
+      .catch((error) => {
+        setEmailAddress('')
+        setPassword('')
+        setError(error.message)
+      })
+  }
 
-    const isInvalid = password === '' || emailAddress === '';
-    const handleSignin = event => {
-        event.preventDefault();
-    }
-
-    return (
+  return (
         <>
             <HeaderContainer>
                 <Form>
                     <Form.Title>
                         Sign In
                     </Form.Title>
-                    {error && 
+                    {error &&
                         <Form.Error>
                             {error}
                         </Form.Error>
@@ -31,14 +45,14 @@ function SignIn() {
                         <Form.Input
                             placeholder="Email address"
                             value={emailAddress}
-                            onChange={({target}) => setEmailAddress(target.value)}
+                            onChange={({ target }) => setEmailAddress(target.value)}
                         />
                         <Form.Input
                             placeholder="Password"
                             type="password"
                             autoComplete="off"
                             value={password}
-                            onChange={({target}) => setpassword(target.value)}
+                            onChange={({ target }) => setPassword(target.value)}
                         />
                         <Form.Submit disabled={isInvalid} type='submit'>
                             Submit
@@ -55,7 +69,7 @@ function SignIn() {
             </HeaderContainer>
             <FooterContainer />
         </>
-    )
+  )
 }
 
-export default SignIn;
+export default SignIn

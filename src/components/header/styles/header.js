@@ -1,5 +1,5 @@
-import styled from 'styled-components/macro';
-import { Link as ReactRouterLink } from 'react-router-dom';
+import styled from 'styled-components/macro'
+import { Link as ReactRouterLink } from 'react-router-dom'
 
 export const Background = styled.div`
   display: flex;
@@ -9,17 +9,17 @@ export const Background = styled.div`
     rgba(0, 0, 0, 0.35), 
     rgba(0, 0, 0, 0.1), 
     rgba(0, 0, 0, 0.35)
-  ), url(${({ src }) => src ? 
-    `../images/misc/${src}.jpg` : 
-    `../images/misc/home-bg.jpg`}) top left / cover
+  ), url(${({ src }) => src
+    ? `../images/misc/${src}.jpg`
+    : '../images/misc/home-bg.jpg'}) top left / cover
     no-repeat;
   @media (max-width: 1100px) {
-    ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && `background: none;`}
+    ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && 'background: none;'}
   }
-`;
+`
 
 export const Frame = styled.div`
-`;
+`
 
 export const Container = styled.div`
   display: flex;
@@ -33,7 +33,7 @@ export const Container = styled.div`
   @media (max-width: 1000px) {
     margin: 0 30px;
   }
-`;
+`
 
 export const Logo = styled.img`
   height: 36px;
@@ -43,7 +43,7 @@ export const Logo = styled.img`
     height: 45px;
     width: 167px;
   }
-`;
+`
 
 export const ButtonLink = styled(ReactRouterLink)`
   display: block;
@@ -60,5 +60,4 @@ export const ButtonLink = styled(ReactRouterLink)`
   &:hover {
     background: #f40612;
   }
-`;
-
+`
