@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
-import { Header } from '../components';
+import { Header } from '../components'
 import * as ROUTES from '../constants/routes'
 import logo from '../logo.svg'
 
-function HeaderContainer(props) {
-    return (
+function HeaderContainer (props) {
+  return (
         <Header {...props}>
             <Header.Frame>
                 <Header.Logo to={ROUTES.HOME} alt='Netflix' src={logo} />
@@ -12,7 +13,7 @@ function HeaderContainer(props) {
             </Header.Frame>
             {props.children}
         </Header>
-    )
+  )
 }
 
 export { HeaderContainer }

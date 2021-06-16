@@ -1,9 +1,10 @@
 import React from 'react'
-import { Accordion, OptForm } from '../components';
-import { default as faqsData } from '../fixtures/fags.json';
+import { Accordion, OptForm } from '../components'
+// eslint-disable-next-line import/no-named-default
+import { default as faqsData } from '../fixtures/fags.json'
 
-function FagContainer() {
-    return (
+function FagContainer () {
+  return (
         <Accordion>
             <Accordion.Title>
                 Frequently Asked Questions
@@ -28,7 +29,7 @@ function FagContainer() {
                 </OptForm.Text>
             </OptForm>
         </Accordion>
-    )
+  )
 }
 
-export { FagContainer };
+export { FagContainer }

@@ -1,10 +1,10 @@
-import styled from 'styled-components/macro';
+import styled from 'styled-components/macro'
 
 export const Container = styled.div`
     display: flex;
     border-bottom: 8px solid #222;
 
-`;
+`
 export const Item = styled.div`
     color: white;
     margin: auto;
@@ -17,9 +17,7 @@ export const Item = styled.div`
     &:last-of-type {
       margin-bottom: 0;
     }
-`;
-
-
+`
 
 export const Header = styled.div`
     display: flex;
@@ -45,7 +43,7 @@ export const Header = styled.div`
         font-size: 16px
     }
 
-`;
+`
 export const Body = styled.div`
     max-height: 1200px;
     transition: max-height 0.25s cubic-bezier(0.5, 0, 0.1, 1);
@@ -61,10 +59,10 @@ export const Body = styled.div`
         font-size: 16px;
         line-height: 22px;
     }
-`;
+`
 export const Frame = styled.div`
     margin-bottom: 40px
-`;
+`
 
 export const Inner = styled.div`
   display: flex;
@@ -72,7 +70,7 @@ export const Inner = styled.div`
   flex-direction: column;
   max-width: 815px;
   margin: auto;
-`;
+`
 
 export const Title = styled.h1`
     font-size:50px;
@@ -85,4 +83,4 @@ export const Title = styled.h1`
     @media (max-width: 600px){
         font-size: 35px 
     }
-`;
+`

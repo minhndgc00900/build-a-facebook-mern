@@ -1,12 +1,12 @@
 import React from 'react'
-import { FagContainer } from '../containers/faqs';
-import { FooterContainer } from '../containers/footer';
-import { JumbotronContainer } from '../containers/jumbotron';
-import { HeaderContainer } from '../containers/header';
-import { OptForm } from '../components';
+import { FagContainer } from '../containers/faqs'
+import { FooterContainer } from '../containers/footer'
+import { JumbotronContainer } from '../containers/jumbotron'
+import { HeaderContainer } from '../containers/header'
+import { OptForm } from '../components'
 
-function Home() {
-    return (
+function Home () {
+  return (
         <>
             <HeaderContainer>
                 {/* <Feature>
@@ -27,10 +27,10 @@ function Home() {
             </HeaderContainer>
             <JumbotronContainer />
             <FagContainer />
-            <FooterContainer />  
+            <FooterContainer />
         </>
 
-    )
+  )
 }
 
-export default Home;
+export default Home

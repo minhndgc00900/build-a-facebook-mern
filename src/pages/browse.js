@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Browse() {
-    return (
+function Browse () {
+  return (
         <div>
             Hello from browse
         </div>
-    )
+  )
 }
 
-export default Browse;
+export default Browse
