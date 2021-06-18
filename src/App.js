@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-unused-expressions */
-import React from 'react'
+import React, { useState } from 'react'
 import {
   BrowserRouter as Router,
   Redirect,
@@ -8,6 +8,7 @@ import {
   Route
 } from 'react-router-dom'
 import * as ROUTES from './constants/routes'
+import PrivateRoute from './helpers/routes'
 import {
   Browse,
   Home,
@@ -17,30 +18,27 @@ import {
 // import { IsUserRedirect } from './helpers/routes'
 
 function App () {
-  const user = {}
-
-  const isUserRedirect = children => {
-    user
-      ? children
-      : (
-      <Redirect to={{
-        pathname: ROUTES.SIGN_IN
-      }} />
-        )
-  }
+  const [user, setUser] = useState({})
 
   return (
     <Router>
-      <Route exact
+      <PrivateRoute
         path={ROUTES.HOME}
-        component={Home}
-        render={isUserRedirect(ROUTES.SIGN_IN, ROUTES.HOME)}
-      />
+        user={user}
+      >
+          <Home />
+      </PrivateRoute>
+      {/* <Route exact path={ROUTES.HOME} component={Home} /> */}
       <Route
         path={ROUTES.SIGN_IN}
         component={SignIn} />
       <Route exact path={ROUTES.SIGN_UP} component={SignUp} />
-      <Route exact path={ROUTES.BROWSE} component={Browse} />
+      <PrivateRoute
+        path={ROUTES.BROWSE}
+        user={user}
+      >
+          <Browse />
+      </PrivateRoute>
     </Router>
   )
 };
