@@ -8,13 +8,13 @@ import { Redirect, Route } from 'react-router-dom'
 
 function PrivateRoute (props) {
   const { user, children, ...rest } = props
-  console.log(232, user)
+  console.log(232, !!user)
   const checkUserRedirect = () => {
     return !!user
-      ? (<Redirect to={{
+      ? children
+      : (<Redirect to={{
           pathname: ROUTES.SIGN_IN
         }} />)
-      : children
   }
 
   return (

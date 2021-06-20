@@ -18,13 +18,17 @@ import {
 // import { IsUserRedirect } from './helpers/routes'
 
 function App () {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState({
+    userName: 'martin',
+    password: '121121'
+  })
 
   return (
     <Router>
       <PrivateRoute
         path={ROUTES.HOME}
         user={user}
+        // setUser={param => setUser(param)}
       >
           <Home />
       </PrivateRoute>
